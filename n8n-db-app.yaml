@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: n8n-db
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/kuratajr/n8n-db.git'
+    targetRevision: HEAD
+    path: k8s/overlays/dev
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: n8n-db                                         
+
+  # ⚙️ Chính sách đồng bộ hóa GitOps
+  syncPolicy:
+    automated:
+      prune: true        # Xóa resource bị xóa trong Git
+      selfHeal: true     # Tự khôi phục nếu có drift ngoài Git
+    syncOptions:
+      - CreateNamespace=true      # ✅ ArgoCD sẽ tự tạo namespace n8n nếu chưa có
