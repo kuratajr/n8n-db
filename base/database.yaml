@@ -40,7 +40,7 @@ spec:
 
   # 🔹 Ràng buộc node
   nodeSelector:
-    n8n-db: "true"
+    longhorn.io/node: "true"
 
   # 🔹 Tránh đặt nhiều pod CNPG trên cùng 1 node
   affinity:
