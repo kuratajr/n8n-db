@@ -50,10 +50,7 @@ spec:
                 operator: In
                 values:
                   - "true"
-
-
-  # 🔹 Tránh đặt nhiều pod CNPG trên cùng 1 node
-  affinity:
+                  
     podAntiAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
       - labelSelector:
