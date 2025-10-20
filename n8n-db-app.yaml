@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: 'https://github.com/kuratajr/n8n-db.git'
     targetRevision: HEAD
-    path: k8s/overlays/dev
+    path: overlays/dev
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: n8n-db                                         
